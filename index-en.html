@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doposcuola 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+Chart.register({
+  id: 'percentageLabels',
+  afterDatasetsDraw(chart) {
+    const {ctx, data} = chart;
+    chart.data.datasets.forEach((dataset, i) => {
+      const total = dataset.data.reduce((a, b) => a + b, 0);
+      chart.getDatasetMeta(i).data.forEach((bar, index) => {
+        const value = dataset.data[index];
+        const percentage = ((value / total) * 100).toFixed(1) + '%';
+        const {x, y} = bar.tooltipPosition();
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Nunito';
+        ctx.textAlign = 'center';
+        ctx.fillText(percentage, x, y);
+      });
+    });
+  }
+});
+</script>
+<script>
+Chart.register({
+  id: 'percentageLabels',
+  afterDatasetsDraw(chart) {
+    const {ctx, data} = chart;
+    chart.data.datasets.forEach((dataset, i) => {
+      const total = dataset.data.reduce((a, b) => a + b, 0);
+      chart.getDatasetMeta(i).data.forEach((bar, index) => {
+        const value = dataset.data[index];
+        const percentage = ((value / total) * 100).toFixed(1) + '%';
+        const {x, y} = bar.tooltipPosition();
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Nunito';
+        ctx.textAlign = 'center';
+        ctx.fillText(percentage, x, y);
+      });
+    });
+  }
+});
+</script>
+  <style>
+    body { margin: 0; font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #a8dfff 0%, #ffffff 100%); color: #333; }
+    header { background-color: #0099cc; color: white; padding: 2rem; text-align: center; position: relative; }
+    .lang-switch { position: absolute; top: 1rem; right: 1rem; }
+    .lang-switch img { width: 28px; height: auto; margin-left: 10px; vertical-align: middle; }
+    section { padding: 2rem; max-width: 900px; margin: auto; }
+    h2 { color: #006699; border-bottom: 2px solid #cceeff; padding-bottom: 0.5rem; }
+    .chart-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; }
+    canvas { max-width: 250px; }
+  
+@media screen and (max-width: 600px) {
+  header { padding: 1.5rem 1rem; }
+  .lang-switch { top: 0.5rem; right: 0.5rem; }
+  section { padding: 1.5rem 1rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  p { font-size: 1rem; }
+  canvas { max-width: 90vw !important; }
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>Doposcuola 2025</h1>
+    <p>A journey of inclusion, care, and growth for the little ones</p>
+    <div class="lang-switch">
+      <a href="index-al.html"><img src="https://flagcdn.com/w40/al.png" alt="Shqip" title="Shqip" /></a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Who We Help</h2>
+    <p>Il progetto accoglie 17 bambini: 10 femmine e 7 maschi, di cui 13 di origine albanese e 4 italiani. Sono alunni della scuola primaria dalla seconda alla quinta classe, con bisogni educativi legati a difficoltà linguistiche, relazionali o di apprendimento.</p>
+    <div class="chart-container">
+      <canvas id="chartNazionalita"></canvas>
+      <canvas id="chartGenere"></canvas>
+      <canvas id="chartClassi"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Volontari e sostenitori</h2>
+    <p>The Heart of the Project è una rete di circa 25 volontari: 5 membri del MASCI, 2 studentesse della scuola dell'infanzia, un informatico, 13 insegnanti (uno ancora in servizio) e il diacono Pietro Dicarlo. Il loro impegno è gratuito e quotidiano, animato da spirito di servizio verso le nuove generazioni.</p>
+    <div class="chart-container">
+      <canvas id="chartVolontari"></canvas>
+    </div>
+  </section>
+<section>
+  <h2>Galleria</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+    <img src="WhatsApp Image 2025-03-29 at 19.32.50.jpeg" alt="Foto 1" style="max-width: 300px; width: 100%; border-radius: 8px;" />
+    <img src="WhatsApp Image 2025-03-29 at 19.32.50 (1).jpeg" alt="Foto 2" style="max-width: 300px; width: 100%; border-radius: 8px;" />
+    <img src="WhatsApp Image 2025-03-29 at 19.32.51.jpeg" alt="Foto 3" style="max-width: 300px; width: 100%; border-radius: 8px;" />
+    <video controls style="max-width: 300px; width: 100%; border-radius: 8px;">
+      <source src="WhatsApp Video 2025-03-29 at 19.34.04.mp4" type="video/mp4" />
+    </video>
+    <video controls style="max-width: 300px; width: 100%; border-radius: 8px;">
+      <source src="WhatsApp Video 2025-03-29 at 19.34.05.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>
+
+
+  <script>
+    new Chart(document.getElementById("chartNazionalita"), {
+      type: 'pie',
+      data: { labels: ["Albanesi", "Italiani"], datasets: [{ data: [13, 4], backgroundColor: ["#ff6384", "#36a2eb"] }] },
+      options: { plugins: { title: { display: true, text: "Nazionalità" } } }
+    });
+    new Chart(document.getElementById("chartGenere"), {
+      type: 'pie',
+      data: { labels: ["Femmine", "Maschi"], datasets: [{ data: [10, 7], backgroundColor: ["#fcd5ce", "#a2d2ff"] }] },
+      options: { plugins: { title: { display: true, text: "Genere" } } }
+    });
+    new Chart(document.getElementById("chartClassi"), {
+      type: 'pie',
+      data: { labels: ["II", "III", "IV", "V"], datasets: [{ data: [7, 8, 1, 1], backgroundColor: ["#ffcd56", "#4bc0c0", "#9966ff", "#ff9f40"] }] },
+      options: { plugins: { title: { display: true, text: "Distribuzione per classe" } } }
+    });
+    new Chart(document.getElementById("chartVolontari"), {
+      type: 'pie',
+      data: { labels: ["MASCI", "Studentesse", "Informatico", "Insegnanti", "Diacono"], datasets: [{ data: [5, 2, 1, 13, 1], backgroundColor: ["#8ecae6", "#ffb703", "#fb8500", "#219ebc", "#023047"] }] },
+      options: { plugins: { title: { display: true, text: "Tipologia dei volontari" } } }
+    });
+  </script>
+
+<section>
+  <h2>Contattaci</h2>
+  <form>
+    <input type="text" name="nome" placeholder="Il tuo nome" required style="padding: 0.5rem; width: 100%; max-width: 400px;" />
+    <input type="email" name="email" placeholder="La tua email" required style="padding: 0.5rem; width: 100%; max-width: 400px;" />
+    <textarea name="messaggio" placeholder="Il tuo messaggio" rows="5" required style="padding: 0.5rem; width: 100%; max-width: 400px;"></textarea>
+    <button type="submit" style="padding: 0.5rem 1rem; background-color: #0099cc; color: white; border: none; cursor: pointer;">Invia</button>
+  </form>
+  <h3 style="margin-top: 2rem;">Dove siamo</h3>
+  <iframe src="https://www.google.com/maps?q=Via+del+Ciliegio+37,+Rutigliano,+BA&output=embed" style="width: 100%; height: 300px; border: none; margin-top: 1rem;"></iframe>
+</section>
+
+</body>
+</html>
