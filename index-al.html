@@ -2,149 +2,109 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doposcuola 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-Chart.register({
-  id: 'percentageLabels',
-  afterDatasetsDraw(chart) {
-    const {ctx, data} = chart;
-    chart.data.datasets.forEach((dataset, i) => {
-      const total = dataset.data.reduce((a, b) => a + b, 0);
-      chart.getDatasetMeta(i).data.forEach((bar, index) => {
-        const value = dataset.data[index];
-        const percentage = ((value / total) * 100).toFixed(1) + '%';
-        const {x, y} = bar.tooltipPosition();
-        ctx.fillStyle = '#000';
-        ctx.font = '12px Nunito';
-        ctx.textAlign = 'center';
-        ctx.fillText(percentage, x, y);
-      });
-    });
-  }
-});
-</script>
-<script>
-Chart.register({
-  id: 'percentageLabels',
-  afterDatasetsDraw(chart) {
-    const {ctx, data} = chart;
-    chart.data.datasets.forEach((dataset, i) => {
-      const total = dataset.data.reduce((a, b) => a + b, 0);
-      chart.getDatasetMeta(i).data.forEach((bar, index) => {
-        const value = dataset.data[index];
-        const percentage = ((value / total) * 100).toFixed(1) + '%';
-        const {x, y} = bar.tooltipPosition();
-        ctx.fillStyle = '#000';
-        ctx.font = '12px Nunito';
-        ctx.textAlign = 'center';
-        ctx.fillText(percentage, x, y);
-      });
-    });
-  }
-});
-</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { margin: 0; font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #a8dfff 0%, #ffffff 100%); color: #333; }
     header { background-color: #0099cc; color: white; padding: 2rem; text-align: center; position: relative; }
     .lang-switch { position: absolute; top: 1rem; right: 1rem; }
-    .lang-switch img { width: 28px; height: auto; margin-left: 10px; vertical-align: middle; }
+    .lang-switch img { width: 28px; height: auto; vertical-align: middle; }
     section { padding: 2rem; max-width: 900px; margin: auto; }
     h2 { color: #006699; border-bottom: 2px solid #cceeff; padding-bottom: 0.5rem; }
-    .chart-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; }
-    canvas { max-width: 250px; }
-  
-@media screen and (max-width: 600px) {
-  header { padding: 1.5rem 1rem; }
-  .lang-switch { top: 0.5rem; right: 0.5rem; }
-  section { padding: 1.5rem 1rem; }
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.2rem; }
-  p { font-size: 1rem; }
-  canvas { max-width: 90vw !important; }
-}
-
-</style>
+    p, li { font-size: 1rem; line-height: 1.6; }
+  </style>
 </head>
 <body>
   <header>
     <h1>Doposcuola 2025</h1>
     <p>Një rrugëtim për përfshirje, kujdes dhe rritje për më të vegjlit</p>
     <div class="lang-switch">
-      <a href="index-al.html"><img src="https://flagcdn.com/w40/al.png" alt="Shqip" title="Shqip" /></a>
+      <a href="index.html"><img src="https://flagcdn.com/w40/it.png" alt="Italiano" title="Italiano"></a>
     </div>
   </header>
 
   <section>
-    <h2>Kë ndihmojmë</h2>
-    <p>Projekti mbështet 17 fëmijë: 10 vajza dhe 7 djem, prej të cilëve 13 me origjinë shqiptare dhe 4 italianë. Janë nxënës të shkollës fillore nga klasa e dytë deri në të pestën, me nevoja arsimore të lidhura me vështirësi gjuhësore, shoqërore ose të të nxënit.</p>
-    <div class="chart-container">
-      <canvas id="chartNazionalita"></canvas>
-      <canvas id="chartGjinia"></canvas>
-      <canvas id="chartClassi"></canvas>
-    </div>
+    <h2>Prezantim – Ku fëmijët kthehen të buzëqeshur</h2>
+    <p>Çdo pasdite, në orën 15:30, hapet një derë në zemër të Rutiglianos. Nuk është thjesht hyrja e një klase apo ndërtese: është hyrja në një hapësirë ku kultivohen ëndrrat, ndërtohen lidhje, ndizet besimi...</p>
   </section>
 
   <section>
-    <h2>Klasa Vullnetarët dhe mbështetësit</h2>
-    <p>Zemra e projektit është rrjeti i rreth 25 vullnetarëve: 5 anëtarë të MASCI, 2 studente të shkollës së fëmijërisë, një informaticien, 13 mësues (njëri ende në shërbim) dhe diakoni Pietro Dicarlo. Angazhimi i tyre është falas dhe i përditshëm me shpirt shërbimi ndaj brezit të ri.</p>
-    <div class="chart-container">
-      <canvas id="chartKlasa Volontari"></canvas>
-    </div>
+    <h2>Kush jemi</h2>
+    <p>Projekti DOPOSCUOLA 2025 lindi nga iniciativa e famullisë San Domenico di Guzmán në Rutigliano (BA)...</p>
   </section>
-<section>
-  <h2>Galleria</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-    <img src="WhatsApp Image 2025-03-29 at 19.32.50.jpeg" alt="Foto 1" style="max-width: 300px; width: 100%; border-radius: 8px;" />
-    <img src="WhatsApp Image 2025-03-29 at 19.32.50 (1).jpeg" alt="Foto 2" style="max-width: 300px; width: 100%; border-radius: 8px;" />
-    <img src="WhatsApp Image 2025-03-29 at 19.32.51.jpeg" alt="Foto 3" style="max-width: 300px; width: 100%; border-radius: 8px;" />
-    <video controls style="max-width: 300px; width: 100%; border-radius: 8px;">
-      <source src="WhatsApp Video 2025-03-29 at 19.34.04.mp4" type="video/mp4" />
-    </video>
-    <video controls style="max-width: 300px; width: 100%; border-radius: 8px;">
-      <source src="WhatsApp Video 2025-03-29 at 19.34.05.mp4" type="video/mp4" />
-    </video>
-  </div>
-</section>
 
+  <section>
+    <h2>Konteksti</h2>
+    <p>Në territorin e Rutiglianos, gjithnjë e më shumë nxënës të shkollës fillore, veçanërisht me origjinë të huaj...</p>
+  </section>
 
-  <script>
-    new Chart(document.getElementById("chartNazionalita"), {
-      type: 'pie',
-      data: { labels: ["Shqiptarë", "Italianë"], datasets: [{ data: [13, 4], backgroundColor: ["#ff6384", "#36a2eb"] }] },
-      options: { plugins: { title: { display: true, text: "Shtetësia" } } }
-    });
-    new Chart(document.getElementById("chartGjinia"), {
-      type: 'pie',
-      data: { labels: ["Klasa Vajza", "Djem"], datasets: [{ data: [10, 7], backgroundColor: ["#fcd5ce", "#a2d2ff"] }] },
-      options: { plugins: { title: { display: true, text: "Gjinia" } } }
-    });
-    new Chart(document.getElementById("chartClassi"), {
-      type: 'pie',
-      data: { labels: ["Klasa II", "Klasa Klasa III", "Klasa IKlasa V", "Klasa V"], datasets: [{ data: [7, 8, 1, 1], backgroundColor: ["#ffcd56", "#4bc0c0", "#9966ff", "#ff9f40"] }] },
-      options: { plugins: { title: { display: true, text: "Përkatësia në klasë" } } }
-    });
-    new Chart(document.getElementById("chartKlasa Volontari"), {
-      type: 'pie',
-      data: { labels: ["MASCI", "Studentë", "Informaticien", "Mësues", "Diakon"], datasets: [{ data: [5, 2, 1, 13, 1], backgroundColor: ["#8ecae6", "#ffb703", "#fb8500", "#219ebc", "#023047"] }] },
-      options: { plugins: { title: { display: true, text: "Profili i vullnetarëve" } } }
-    });
-  </script>
+  <section>
+    <h2>Kë ndihmojmë</h2>
+    <p>Aktualisht në projekt marrin pjesë 17 fëmijë të shkollës fillore, të ndarë kështu:</p>
+    <ul>
+      <li>10 vajza dhe 7 djem</li>
+      <li>7 ndjekin klasën II, 8 klasën III, 1 klasën IV, 1 klasën V</li>
+      <li>13 me origjinë shqiptare, 4 italianë</li>
+    </ul>
+    <p>Shumica e tyre përballen me vështirësi gjuhësore dhe kulturore...</p>
+  </section>
 
-<section>
-  <h2>Na kontaktoni</h2>
-  <form>
-    <input type="text" name="nome" placeholder="Emri juaj" required style="padding: 0.5rem; width: 100%; max-width: 400px;" />
-    <input type="email" name="email" placeholder="Email-i juaj" required style="padding: 0.5rem; width: 100%; max-width: 400px;" />
-    <textarea name="messaggio" placeholder="Mesazhi juaj" rows="5" required style="padding: 0.5rem; width: 100%; max-width: 400px;"></textarea>
-    <button type="submit" style="padding: 0.5rem 1rem; background-color: #0099cc; color: white; border: none; cursor: pointer;">Dërgo</button>
-  </form>
-  <h3 style="margin-top: 2rem;">Ku ndodhemi</h3>
-  <iframe src="https://www.google.com/maps?q=Via+del+Ciliegio+37,+Rutigliano,+BA&output=embed" style="width: 100%; height: 300px; border: none; margin-top: 1rem;"></iframe>
-</section>
+  <section>
+    <h2>Zemra e projektit</h2>
+    <p>Doposcuola 2025 është shumë më tepër se një ndihmë për detyrat: është një hapësirë edukative, marrëdhëniesh dhe komuniteti...</p>
+  </section>
 
+  <section>
+    <h2>Aktivitete dhe metodologji</h2>
+    <ul>
+      <li>Ndihmë për detyrat në grupe të vogla me tutorim të personalizuar;</li>
+      <li>Laboratorë gjuhësorë dhe njohës;</li>
+      <li>Aktivitete kreative dhe manuale, si puna me argjilë;</li>
+      <li>Laboratorë shprehës: teatër, mimo, vallëzim;</li>
+      <li>Rrugë ndërkulturore për të vlerësuar dallimet;</li>
+      <li>Përfshirje aktive e familjeve.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Fuqia e vullnetarizmit</h2>
+    <ul>
+      <li>5 të rritur nga MASCI</li>
+      <li>2 studente të shkollës së fëmijërisë</li>
+      <li>1 informaticien</li>
+      <li>13 mësues (1 aktiv, 12 në pension)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Organizimi dhe oraret</h2>
+    <ul>
+      <li>5 ditë në javë</li>
+      <li>orari: 15:30 - 18:00</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ndikimi i pritur</h2>
+    <ul>
+      <li>Ofrojmë mbështetje efektive shkollore</li>
+      <li>Parandalimi i braktisjes së hershme shkollore</li>
+      <li>Forcimi i marrëdhënies shkollë-familje</li>
+      <li>Promovimi i integrimit kulturor dhe shoqëror</li>
+      <li>Vlerësimi i traditave vendore</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Qëndrueshmëria dhe vizioni i së ardhmes</h2>
+    <p>Projekti synon të bëhet një model edukativ i qëndrueshëm dhe i përsëritshëm...</p>
+  </section>
+
+  <footer>
+    <p>Famullia San Domenico di Guzmán – Via San Giovanni Bosco, 2 - 70018 Rutigliano (Ba)<br />
+    Tel. 0803328260 – Email: boscoangelo@live.it – CF: 93084040729</p>
+  </footer>
 </body>
 </html>
