@@ -1,149 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doposcuola 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Nunito', sans-serif;
-      background: linear-gradient(to bottom, #a8dfff 0%, #ffffff 100%);
-      color: #333;
-    }
-    header {
-      background-color: #0099cc;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #f0f8ff;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      font-weight: bold;
-    }
-    nav a {
-      text-decoration: none;
-      color: #006699;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      color: #006699;
-      border-bottom: 2px solid #cceeff;
-      padding-bottom: 0.5rem;
-    }
-    footer {
-      background-color: #e6f7ff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    input, textarea {
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #0099cc;
-      color: white;
-      border: none;
-      padding: 0.7rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .gallery img, .gallery video {
-      width: 100%;
-      max-width: 500px;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
+    body { margin: 0; font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #a8dfff 0%, #ffffff 100%); color: #333; }
+    header { background-color: #0099cc; color: white; padding: 2rem; text-align: center; position: relative; }
+    .lang-switch { position: absolute; top: 1rem; right: 1rem; }
+    .lang-switch img { width: 28px; height: auto; margin-left: 10px; vertical-align: middle; }
+    section { padding: 2rem; max-width: 900px; margin: auto; }
+    h2 { color: #006699; border-bottom: 2px solid #cceeff; padding-bottom: 0.5rem; }
+    .chart-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; }
+    canvas { max-width: 250px; }
   </style>
 </head>
 <body>
   <header>
     <h1>Doposcuola 2025</h1>
     <p>Un cammino di inclusione, cura e crescita per i più piccoli</p>
+    <div class="lang-switch">
+      <a href="index-al.html"><img src="https://flagcdn.com/w40/al.png" alt="Shqip" title="Shqip" /></a>
+    </div>
   </header>
 
-  <nav>
-    <a href="#chi-siamo">Chi siamo</a>
-    <a href="#cosa-facciamo">Cosa facciamo</a>
-    <a href="#beneficiari">Chi aiutiamo</a>
-    <a href="#volontari">Volontari</a>
-    <a href="#galleria">Galleria</a>
-    <a href="#contatti">Contatti</a>
-  </nav>
-
-  <section id="chi-siamo">
-    <h2>Chi siamo</h2>
-    <p>Il progetto Doposcuola 2025 nasce dall'iniziativa della Parrocchia San Domenico di Guzmán di Rutigliano (BA), nella diocesi di Conversano - Monopoli. Collaborano al progetto: MASCI 2 di Rutigliano, l'associazione O.d.v. Sacra Corona Jesu, e un team di oltre 25 volontari, coordinati dal diacono permanente Pietro Dicarlo.</p>
-  </section>
-
-  <section id="cosa-facciamo">
-    <h2>Cosa facciamo</h2>
-    <p>Il doposcuola offre un ambiente accogliente e stimolante per bambini della scuola primaria. Tra le attività proposte: aiuto compiti, laboratori linguistici, attività artistiche e manuali (come la lavorazione dell’argilla in collaborazione con l’Archeoclub di Rutigliano), percorsi interculturali, teatro e danza, momenti di socializzazione e sostegno relazionale.</p>
-  </section>
-
-  <section id="beneficiari">
+  <section>
     <h2>Chi aiutiamo</h2>
-    <p>Il progetto accoglie 17 bambini: 10 femmine e 7 maschi, di cui 13 di origine albanese e 4 italiani. Sono alunni della scuola primaria, dalla seconda alla quinta classe, che presentano bisogni educativi legati a difficoltà linguistiche, relazionali o di apprendimento.</p>
-  </section>
-
-  <section id="volontari">
-    <h2>Volontari e sostenitori</h2>
-    <p>Il cuore pulsante del progetto è una rete di circa 25 volontari: 5 membri MASCI, 2 studentesse della scuola dell'infanzia, un informatico, 13 insegnanti (di cui uno in attività) e il diacono Pietro Dicarlo. Il loro impegno è gratuito, costante e mosso da spirito di servizio verso le nuove generazioni.</p>
-  </section>
-
-  <section id="galleria">
-    <h2>Galleria / Notizie</h2>
-    <div class="gallery">
-      <img src="WhatsApp%20Image%202025-03-29%20at%2019.32.50.jpeg" alt="Laboratorio Pasquale">
-      <img src="WhatsApp%20Image%202025-03-29%20at%2019.32.50%20(1).jpeg" alt="Attività scolastica 1">
-      <img src="WhatsApp%20Image%202025-03-29%20at%2019.32.51.jpeg" alt="Attività scolastica 2">
-      <video controls src="WhatsApp%20Video%202025-03-29%20at%2019.34.04.mp4"></video>
-      <video controls src="WhatsApp%20Video%202025-03-29%20at%2019.34.05.mp4"></video>
+    <p>Il progetto accoglie 17 bambini: 10 femmine e 7 maschi, di cui 13 di origine albanese e 4 italiani. Sono alunni della scuola primaria dalla seconda alla quinta classe, con bisogni educativi legati a difficoltà linguistiche, relazionali o di apprendimento.</p>
+    <div class="chart-container">
+      <canvas id="chartNazionalita"></canvas>
+      <canvas id="chartGenere"></canvas>
+      <canvas id="chartClassi"></canvas>
     </div>
   </section>
 
-  <section id="contatti">
-    <h2>Contatti</h2>
-    <p><strong>Email:</strong> boscoangelo@live.it</p>
-    <p><strong>Telefono:</strong> 080 3328260</p>
-    <p><strong>Indirizzo:</strong> Via San Giovanni Bosco, 2 - 70018 Rutigliano (BA)</p>
-
-    <form>
-      <input type="text" name="nome" placeholder="Il tuo nome" required>
-      <input type="email" name="email" placeholder="La tua email" required>
-      <textarea name="messaggio" placeholder="Il tuo messaggio" rows="5" required></textarea>
-      <button type="submit">Invia messaggio</button>
-    </form>
-
-    <h3>Dove siamo</h3>
-    <iframe src="https://www.google.com/maps?q=Via+del+Ciliegio+37,+Rutigliano,+BA&output=embed"></iframe>
+  <section>
+    <h2>Volontari e sostenitori</h2>
+    <p>Il cuore del progetto è una rete di circa 25 volontari: 5 membri del MASCI, 2 studentesse della scuola dell'infanzia, un informatico, 13 insegnanti (uno ancora in servizio) e il diacono Pietro Dicarlo. Il loro impegno è gratuito e quotidiano, animato da spirito di servizio verso le nuove generazioni.</p>
+    <div class="chart-container">
+      <canvas id="chartVolontari"></canvas>
+    </div>
   </section>
 
-  <footer>
-    © 2025 Doposcuola Parrocchia San Domenico di Guzmán - Rutigliano
-  </footer>
+  <script>
+    new Chart(document.getElementById("chartNazionalita"), {
+      type: 'pie',
+      data: { labels: ["Albanesi", "Italiani"], datasets: [{ data: [13, 4], backgroundColor: ["#ff6384", "#36a2eb"] }] },
+      options: { plugins: { title: { display: true, text: "Nazionalità" } } }
+    });
+    new Chart(document.getElementById("chartGenere"), {
+      type: 'pie',
+      data: { labels: ["Femmine", "Maschi"], datasets: [{ data: [10, 7], backgroundColor: ["#fcd5ce", "#a2d2ff"] }] },
+      options: { plugins: { title: { display: true, text: "Genere" } } }
+    });
+    new Chart(document.getElementById("chartClassi"), {
+      type: 'pie',
+      data: { labels: ["II", "III", "IV", "V"], datasets: [{ data: [7, 8, 1, 1], backgroundColor: ["#ffcd56", "#4bc0c0", "#9966ff", "#ff9f40"] }] },
+      options: { plugins: { title: { display: true, text: "Distribuzione per classe" } } }
+    });
+    new Chart(document.getElementById("chartVolontari"), {
+      type: 'pie',
+      data: { labels: ["MASCI", "Studentesse", "Informatico", "Insegnanti", "Diacono"], datasets: [{ data: [5, 2, 1, 13, 1], backgroundColor: ["#8ecae6", "#ffb703", "#fb8500", "#219ebc", "#023047"] }] },
+      options: { plugins: { title: { display: true, text: "Tipologia dei volontari" } } }
+    });
+  </script>
 </body>
 </html>
