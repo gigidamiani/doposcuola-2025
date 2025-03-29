@@ -7,6 +7,46 @@
   <title>Doposcuola 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+Chart.register({
+  id: 'percentageLabels',
+  afterDatasetsDraw(chart) {
+    const {ctx, data} = chart;
+    chart.data.datasets.forEach((dataset, i) => {
+      const total = dataset.data.reduce((a, b) => a + b, 0);
+      chart.getDatasetMeta(i).data.forEach((bar, index) => {
+        const value = dataset.data[index];
+        const percentage = ((value / total) * 100).toFixed(1) + '%';
+        const {x, y} = bar.tooltipPosition();
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Nunito';
+        ctx.textAlign = 'center';
+        ctx.fillText(percentage, x, y);
+      });
+    });
+  }
+});
+</script>
+<script>
+Chart.register({
+  id: 'percentageLabels',
+  afterDatasetsDraw(chart) {
+    const {ctx, data} = chart;
+    chart.data.datasets.forEach((dataset, i) => {
+      const total = dataset.data.reduce((a, b) => a + b, 0);
+      chart.getDatasetMeta(i).data.forEach((bar, index) => {
+        const value = dataset.data[index];
+        const percentage = ((value / total) * 100).toFixed(1) + '%';
+        const {x, y} = bar.tooltipPosition();
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Nunito';
+        ctx.textAlign = 'center';
+        ctx.fillText(percentage, x, y);
+      });
+    });
+  }
+});
+</script>
   <style>
     body { margin: 0; font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #a8dfff 0%, #ffffff 100%); color: #333; }
     header { background-color: #0099cc; color: white; padding: 2rem; text-align: center; position: relative; }
@@ -16,7 +56,18 @@
     h2 { color: #006699; border-bottom: 2px solid #cceeff; padding-bottom: 0.5rem; }
     .chart-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; }
     canvas { max-width: 250px; }
-  </style>
+  
+@media screen and (max-width: 600px) {
+  header { padding: 1.5rem 1rem; }
+  .lang-switch { top: 0.5rem; right: 0.5rem; }
+  section { padding: 1.5rem 1rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  p { font-size: 1rem; }
+  canvas { max-width: 90vw !important; }
+}
+
+</style>
 </head>
 <body>
   <header>
@@ -44,6 +95,21 @@
       <canvas id="chartVolontari"></canvas>
     </div>
   </section>
+<section>
+  <h2>Galleria</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+    <img src="WhatsApp Image 2025-03-29 at 19.32.50.jpeg" alt="Foto 1" style="max-width: 300px; width: 100%; border-radius: 8px;" />
+    <img src="WhatsApp Image 2025-03-29 at 19.32.50 (1).jpeg" alt="Foto 2" style="max-width: 300px; width: 100%; border-radius: 8px;" />
+    <img src="WhatsApp Image 2025-03-29 at 19.32.51.jpeg" alt="Foto 3" style="max-width: 300px; width: 100%; border-radius: 8px;" />
+    <video controls style="max-width: 300px; width: 100%; border-radius: 8px;">
+      <source src="WhatsApp Video 2025-03-29 at 19.34.04.mp4" type="video/mp4" />
+    </video>
+    <video controls style="max-width: 300px; width: 100%; border-radius: 8px;">
+      <source src="WhatsApp Video 2025-03-29 at 19.34.05.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>
+
 
   <script>
     new Chart(document.getElementById("chartNazionalita"), {
